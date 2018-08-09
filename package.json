@@ -37,5 +37,6 @@
     "rollup": "^0.63.5",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-json": "^3.0.0"
-  }
+  },
+  "dependencies": {}
 }

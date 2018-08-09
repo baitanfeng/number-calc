@@ -29,7 +29,9 @@
   function checkBoundary(number) {
     if (!Number.isSafeInteger(number)) {
       console.warn(number + ' is beyond boundary, the final result may not be accurate');
+      return false;
     }
+    return true;
   }
 
   /**
@@ -145,6 +147,7 @@
   var index = {
     fractionLength: fractionLength,
     replaceDotToSpace: replaceDotToSpace,
+    checkBoundary: checkBoundary,
     add: add,
     subtract: subtract,
     multiply: multiply,

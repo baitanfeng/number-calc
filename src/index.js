@@ -25,7 +25,9 @@ function checkBoundary(number) {
     console.warn(
       `${number} is beyond boundary, the final result may not be accurate`
     )
+    return false
   }
+  return true
 }
 
 /**
@@ -139,6 +141,7 @@ function prune(number, precision = 12) {
 export default {
   fractionLength,
   replaceDotToSpace,
+  checkBoundary,
   add,
   subtract,
   multiply,
