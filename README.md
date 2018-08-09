@@ -20,11 +20,11 @@ npm install --save number-calc
 ### Methods
 
 ```js
-NC.add(number1, number2)
-NC.subtract(number1, number2)
-NC.multiply(number1, number2)
-NC.divide(number1, number2)
-NC.prune(number, (precision = 12))
+NC.add(number1, number2) // addition, number1 + number2
+NC.subtract(number1, number2) // subtraction, number1 - number2
+NC.multiply(number1, number2) // multiplication, number1 * number2
+NC.divide(number1, number2) // division, number1 / number2
+NC.prune(number, precision) // prune, precision defaults to 12
 ```
 
 ### Usage
