@@ -1,4 +1,4 @@
-# number-calc
+# number-calc [![npm version](https://badge.fury.io/js/number-calc.svg)](http://badge.fury.io/js/number-calc) [![Build Status](https://travis-ci.org/otfngo/number-calc.svg)](https://travis-ci.org/otfngo/number-calc) [![codecov](https://codecov.io/gh/otfngo/number-calc/branch/master/graph/badge.svg)](https://codecov.io/gh/otfngo/number-calc)
 
 Calculate addition, subtraction, multiplication, and division precisely using JS
 
