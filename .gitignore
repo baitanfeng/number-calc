@@ -6,10 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 
 *.log
-lib
-coverage
 logs
-build-test
 .rpt2_cache
 .nyc_output
 

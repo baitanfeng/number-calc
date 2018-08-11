@@ -4,7 +4,7 @@
  * * fractionLength(1.001) => 3
  * * fractionLength(1.001e-7) => 10
  */
-function fractionLength(number) {
+const fractionLength = number => {
   const eSplit = number.toString().split(/[eE]/)
   return (eSplit[0].split('.')[1] || '').length - (eSplit[1] || 0)
 }
@@ -15,12 +15,12 @@ function fractionLength(number) {
  * * replaceDotToSpace(1.001) => 1001
  * * replaceDotToSpace(1.001e-7) => 1001
  */
-function replaceDotToSpace(number) {
+const replaceDotToSpace = number => {
   const eSplit = number.toString().split(/[eE]/)
   return +eSplit[0].replace('.', '')
 }
 
-function checkBoundary(number) {
+const checkBoundary = number => {
   if (!Number.isSafeInteger(number)) {
     console.warn(
       `${number} is beyond boundary, the final result may not be accurate`
@@ -39,7 +39,7 @@ function checkBoundary(number) {
  * * 0.1 + 0.2 = 0.30000000000000004
  * * add(0.1, 0.2) = 0.3
  */
-function add(number1, number2) {
+const add = (number1, number2) => {
   const len1 = fractionLength(number1)
   const len2 = fractionLength(number2)
 
@@ -68,9 +68,7 @@ function add(number1, number2) {
  * * 0.3 - 0.2 = 0.09999999999999998
  * * subtract(0.3, 0.2) = 0.1
  */
-function subtract(number1, number2) {
-  return add(number1, -number2)
-}
+const subtract = (number1, number2) => add(number1, -number2)
 
 /**
  * 乘法函数，用来得到精确的乘法结果
@@ -81,7 +79,7 @@ function subtract(number1, number2) {
  * * 0.097 * 100 = 9.700000000000001
  * * multiply(0.097, 100) = 9.7
  */
-function multiply(number1, number2) {
+const multiply = (number1, number2) => {
   const len1 = fractionLength(number1)
   const len2 = fractionLength(number2)
 
@@ -108,7 +106,7 @@ function multiply(number1, number2) {
  * * 1.21 / 1.1 = 1.0999999999999999
  * * divide(1.21, 1.1) = 1.1
  */
-function divide(number1, number2) {
+const divide = (number1, number2) => {
   const len1 = fractionLength(number1)
   const len2 = fractionLength(number2)
 
@@ -134,9 +132,7 @@ function divide(number1, number2) {
  * * 0.3 - 0.2 = 0.09999999999999998
  * * prune(0.3 - 0.2) = 0.1
  */
-function prune(number, precision = 12) {
-  return +number.toPrecision(precision)
-}
+const prune = (number, precision = 12) => +number.toPrecision(precision)
 
 export default {
   fractionLength,
