@@ -7,6 +7,7 @@ yarn-error.log*
 
 *.log
 examples
+coverage
 
 # Editor directories and files
 .idea
