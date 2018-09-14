@@ -24,7 +24,7 @@ var NC = (function () {
   };
 
   var checkBoundary = function checkBoundary(number) {
-    if (!Number.isSafeInteger(number)) {
+    if (number > Number.MAX_SAFE_INTEGER || number < Number.MIN_SAFE_INTEGER) {
       console.warn(number + ' is beyond boundary, the final result may not be accurate');
       return false;
     }
