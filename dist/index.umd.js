@@ -10,7 +10,9 @@
    * * fractionLength(1.001) => 3
    * * fractionLength(1.001e-7) => 10
    */
-  var fractionLength = function fractionLength(number) {
+  var fractionLength = function fractionLength() {
+    var number = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
     var eSplit = number.toString().split(/[eE]/);
     return (eSplit[0].split('.')[1] || '').length - (eSplit[1] || 0);
   };
@@ -21,12 +23,16 @@
    * * replaceDotToSpace(1.001) => 1001
    * * replaceDotToSpace(1.001e-7) => 1001
    */
-  var replaceDotToSpace = function replaceDotToSpace(number) {
+  var replaceDotToSpace = function replaceDotToSpace() {
+    var number = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
     var eSplit = number.toString().split(/[eE]/);
     return +eSplit[0].replace('.', '');
   };
 
-  var checkBoundary = function checkBoundary(number) {
+  var checkBoundary = function checkBoundary() {
+    var number = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
     if (number > Number.MAX_SAFE_INTEGER || number < Number.MIN_SAFE_INTEGER) {
       console.warn(number + ' is beyond boundary, the final result may not be accurate');
       return false;
@@ -43,7 +49,10 @@
    * * 0.1 + 0.2 = 0.30000000000000004
    * * add(0.1, 0.2) = 0.3
    */
-  var add = function add(number1, number2) {
+  var add = function add() {
+    var number1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    var number2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
     var len1 = fractionLength(number1);
     var len2 = fractionLength(number2);
 
@@ -72,7 +81,9 @@
    * * 0.3 - 0.2 = 0.09999999999999998
    * * subtract(0.3, 0.2) = 0.1
    */
-  var subtract = function subtract(number1, number2) {
+  var subtract = function subtract() {
+    var number1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    var number2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
     return add(number1, -number2);
   };
 
@@ -85,7 +96,10 @@
    * * 0.097 * 100 = 9.700000000000001
    * * multiply(0.097, 100) = 9.7
    */
-  var multiply = function multiply(number1, number2) {
+  var multiply = function multiply() {
+    var number1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    var number2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
     var len1 = fractionLength(number1);
     var len2 = fractionLength(number2);
 
@@ -112,7 +126,10 @@
    * * 1.21 / 1.1 = 1.0999999999999999
    * * divide(1.21, 1.1) = 1.1
    */
-  var divide = function divide(number1, number2) {
+  var divide = function divide() {
+    var number1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    var number2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
     var len1 = fractionLength(number1);
     var len2 = fractionLength(number2);
 
@@ -138,7 +155,8 @@
    * * 0.3 - 0.2 = 0.09999999999999998
    * * prune(0.3 - 0.2) = 0.1
    */
-  var prune = function prune(number) {
+  var prune = function prune() {
+    var number = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
     var precision = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 12;
     return +number.toPrecision(precision);
   };
