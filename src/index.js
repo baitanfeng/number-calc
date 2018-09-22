@@ -4,7 +4,7 @@
  * * fractionLength(1.001) => 3
  * * fractionLength(1.001e-7) => 10
  */
-const fractionLength = number => {
+const fractionLength = (number = 0) => {
   const eSplit = number.toString().split(/[eE]/)
   return (eSplit[0].split('.')[1] || '').length - (eSplit[1] || 0)
 }
@@ -15,12 +15,12 @@ const fractionLength = number => {
  * * replaceDotToSpace(1.001) => 1001
  * * replaceDotToSpace(1.001e-7) => 1001
  */
-const replaceDotToSpace = number => {
+const replaceDotToSpace = (number = 0) => {
   const eSplit = number.toString().split(/[eE]/)
   return +eSplit[0].replace('.', '')
 }
 
-const checkBoundary = number => {
+const checkBoundary = (number = 0) => {
   if (number > Number.MAX_SAFE_INTEGER || number < Number.MIN_SAFE_INTEGER) {
     console.warn(
       `${number} is beyond boundary, the final result may not be accurate`
@@ -39,7 +39,7 @@ const checkBoundary = number => {
  * * 0.1 + 0.2 = 0.30000000000000004
  * * add(0.1, 0.2) = 0.3
  */
-const add = (number1, number2) => {
+const add = (number1 = 0, number2 = 0) => {
   const len1 = fractionLength(number1)
   const len2 = fractionLength(number2)
 
@@ -68,7 +68,7 @@ const add = (number1, number2) => {
  * * 0.3 - 0.2 = 0.09999999999999998
  * * subtract(0.3, 0.2) = 0.1
  */
-const subtract = (number1, number2) => add(number1, -number2)
+const subtract = (number1 = 0, number2 = 0) => add(number1, -number2)
 
 /**
  * 乘法函数，用来得到精确的乘法结果
@@ -79,7 +79,7 @@ const subtract = (number1, number2) => add(number1, -number2)
  * * 0.097 * 100 = 9.700000000000001
  * * multiply(0.097, 100) = 9.7
  */
-const multiply = (number1, number2) => {
+const multiply = (number1 = 0, number2 = 0) => {
   const len1 = fractionLength(number1)
   const len2 = fractionLength(number2)
 
@@ -106,7 +106,7 @@ const multiply = (number1, number2) => {
  * * 1.21 / 1.1 = 1.0999999999999999
  * * divide(1.21, 1.1) = 1.1
  */
-const divide = (number1, number2) => {
+const divide = (number1 = 0, number2 = 1) => {
   const len1 = fractionLength(number1)
   const len2 = fractionLength(number2)
 
@@ -132,7 +132,7 @@ const divide = (number1, number2) => {
  * * 0.3 - 0.2 = 0.09999999999999998
  * * prune(0.3 - 0.2) = 0.1
  */
-const prune = (number, precision = 12) => +number.toPrecision(precision)
+const prune = (number = 0, precision = 12) => +number.toPrecision(precision)
 
 export default {
   fractionLength,
