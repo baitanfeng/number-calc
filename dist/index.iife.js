@@ -155,7 +155,7 @@ var NC = (function () {
   var prune = function prune() {
     var number = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
     var precision = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 12;
-    return +number.toPrecision(precision);
+    return +(+number).toPrecision(precision);
   };
 
   var index = {
