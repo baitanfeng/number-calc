@@ -132,7 +132,7 @@ const divide = (number1 = 0, number2 = 1) => {
  * * 0.3 - 0.2 = 0.09999999999999998
  * * prune(0.3 - 0.2) = 0.1
  */
-const prune = (number = 0, precision = 12) => +number.toPrecision(precision)
+const prune = (number = 0, precision = 12) => +(+number).toPrecision(precision)
 
 export default {
   fractionLength,
